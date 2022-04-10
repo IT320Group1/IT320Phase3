@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Update Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"  href="addUpdate.css">
+  
+  
+  <script>
+  function validationRequest(){
+	
+		if(form.Wname.value == ""||form.description.value==""){
+	alert("please fill in all the fields");
+	return false;
+    }
+
+
+alert("The website is updated");
+     location.replace("goatAdmin.html");
+      return true;
+
+}
+
+function validationImage(){
+
+var fileInput = 
+                document.getElementById('image');
+              
+            var filePath = fileInput.value;
+          
+            // Allowing file type
+            var allowedExtensions = 
+                    /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+              
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Please upload only image files');
+                fileInput.value = '';
+              return false;
+			  }
+			     else 
+            {
+             document.getElementById('imagePreview').style.visibility='visible';
+                // Image preview
+                if (fileInput.files && fileInput.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById(
+                            'imagePreview').innerHTML = 
+                            'Uploaded image: <br> <br> <img src="' + e.target.result
+                            + '"/>';
+                    };
+                      
+                    reader.readAsDataURL(fileInput.files[0]);
+                }
+				return true;
+            }
+			}
+			  
+  
+  </script>
+</head>
+
+
+<body>
+
+<header>
+
+
+<nav>
+<ul>
+<li class="logo"><img src="THE_COMFORT_ZONE-resize.png"></li>
+<li><a href="#news" style=" font-weight: 900;"><pre>THE COMFORT ZONE    </pre></a></li>
+ <li class = 'link'><a href="adminHome.html">Home ></a></li>
+ <li class = 'link'><a href="farfetchAdmin.html">Item ></a></li>
+  <li class = 'link'> <a class="active" href="updateGoat.html">update</a></li>
+</ul>
+</nav>
+</header>
+		
+<h1>Update a website</h1>
+<br>
+<br>
+        
+ 			      <div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div> 
+
+	
+          <div class="formbg">
+            <div class="content-padding">
+              <p>Update a website information</p>
+			  <form name="form" method = "POST" enctype = "multipart/form-data">
+                  <div class="field">
+                  <label for="webName">Website name:</label>
+                  <input type="text" name="Wname" value="GOAT">
+                </div>
+                <div class="field">
+ 
+                    <label for="description">Description</label>
+                  
+                   <textarea name = "description" rows = "6" cols = "55" placeholder = "please put a description about the website">GOAT is the global platform for style. Founded in 2015 to bring trust to the sneaker community, the technology platform has since expanded to offer apparel and accessories from the world’s leading contemporary, avant garde and luxury brands. Through its unique positioning between the primary and resale markets, the company is able to surface styles from the past, present and future, delivering authentic product to over 20M members across 164 countries.</textarea>
+                </div>   
+                  
+                  
+               
+				
+               <div class="field">
+                  <label for="attachment">Website image</label>
+                  <input type="file" id = "image" name="image" onchange="validationImage()">
+				  
+                </div>
+				
+                <div class="field">
+                  <input type="submit" name="submit" value="Update" onclick = "validationRequest(); return false;" >
+                </div>
+				
+              </form>
+			  
+			  
+            </div>
+			
+          </div>
+		  <div id="imagePreview"></div>
+      <footer>
+            <br>
+            <div style="color: white;">
+              All rights reserved for group 1 2022  
+            </div> 
+			<br>
+        </footer>
+      
+        
+      
+</body>
+
+</html>
